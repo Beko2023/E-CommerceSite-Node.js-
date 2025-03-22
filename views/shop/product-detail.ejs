@@ -10,9 +10,9 @@
           </div>
           <h2>Price: $<%= prods.price %></h2>
           <p><%= prods.description %></p>
-          <from action="/cart" method="post">
-              <button class="btn" type="submit">Add to Cart</button>
-              <input type="hidden" name="productId" value="<%= product.id %>">
+          <div class="card__actions">
+            <%- include('../includes/add-to-cart.ejs') %>
+        </div>
         </main>
         <%- include('../includes/end.ejs') %>
 
