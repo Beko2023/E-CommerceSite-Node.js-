@@ -1,0 +1,17 @@
+<%- include('../includes/head.ejs') %>
+    </head>
+
+    <body>
+        <%- include('../includes/navigation.ejs') %>
+        <main class="centered">
+          <h1><%= prods.title %></h1>
+          <div>
+            <img src="<%= prods.imageUrl %>" alt="<%= prods.title %>" />
+          </div>
+          <h2>Price: $<%= prods.price %></h2>
+          <p><%= prods.description %></p>
+          <a href="/">Back to Home</a>
+        </main>
+        <%- include('../includes/end.ejs') %>
+
+
