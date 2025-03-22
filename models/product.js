@@ -42,7 +42,7 @@ module.exports = class Product {
   static findById(id) {
     return new Promise((resolve, reject) => {
       getProductsFromFile((products) => {
-        const product = products.find((p) => p.id === id); // Find the product by ID
+        const product = products.find((p) => p.id === id);
         if (product) {
           resolve(product);
         } else {

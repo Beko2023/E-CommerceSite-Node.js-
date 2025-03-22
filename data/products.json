@@ -1,23 +1,9 @@
 [
   {
-    "id": "567584932",
-    "title": "Test",
-    "imageUrl": "IMAGE URL",
-    "description": "Test 1 2 3",
-    "price": "70.99"
-  },
-  {
-    "id": "245676543",
-    "title": "Test2",
-    "imageUrl": "some image url",
-    "description": "Some description",
-    "price": "20"
-  },
-  {
-    "title": "Test3",
-    "imageUrl": "dfghjklşi",
-    "description": "test 3",
-    "price": "20",
-    "id": "0.9906743644272129"
+    "title": "Test Product",
+    "imageUrl": "www.ImageUrl.com",
+    "description": "Some Description of this test product. ",
+    "price": "59",
+    "id": "0.8092046001127384"
   }
 ]

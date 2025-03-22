@@ -16,7 +16,7 @@ exports.getProduct = async (req, res, next) => {
 
   try {
     const product = await Product.findById(prodId);
-    console.log("Found product:", product); // Debug: Log the found product
+    console.log("Found product:", product);
 
     res.render("shop/product-detail", {
       prods: product,
@@ -24,7 +24,7 @@ exports.getProduct = async (req, res, next) => {
       path: "/products",
     });
   } catch (error) {
-    console.log(error.message); // Debug: Log the error message
+    console.log(error.message);
     res.status(404).render("404", {
       pageTitle: "Product Not Found",
       path: "/404",
