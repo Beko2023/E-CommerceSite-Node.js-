@@ -1,4 +1,5 @@
 const Product = require("../models/product");
+const Cart = require("../models/cart");
 
 exports.getProducts = (req, res, next) => {
   Product.fetchAll((products) => {
@@ -12,24 +13,12 @@ exports.getProducts = (req, res, next) => {
 
 exports.getProduct = async (req, res, next) => {
   const prodId = req.params.productId;
-  console.log("Requested product ID:", prodId);
-
-  try {
-    const product = await Product.findById(prodId);
-    console.log("Found product:", product);
-
-    res.render("shop/product-detail", {
-      prods: product,
-      pageTitle: product.title,
-      path: "/products",
-    });
-  } catch (error) {
-    console.log(error.message);
-    res.status(404).render("404", {
-      pageTitle: "Product Not Found",
-      path: "/404",
-    });
-  }
+  Product.findById(prodId);
+  res.render("shop/product-detail", {
+    prods: product,
+    pageTitle: product.title,
+    path: "/products",
+  });
 };
 
 exports.getIndex = (req, res, next) => {
@@ -51,6 +40,10 @@ exports.getCart = (req, res, next) => {
 
 exports.postCart = (req, res, next) => {
   const prodId = req.body.productId;
+  console.log(prodId);
+  Product.findById(prodId, (product) => {
+    Cart.addProduct(prodId, product.price);
+  });
   console.log(prodId);
   res.redirect("/cart");
 };

@@ -39,16 +39,10 @@ module.exports = class Product {
     getProductsFromFile(cb);
   }
 
-  static findById(id) {
-    return new Promise((resolve, reject) => {
-      getProductsFromFile((products) => {
-        const product = products.find((p) => p.id === id);
-        if (product) {
-          resolve(product);
-        } else {
-          reject(new Error("Product not found"));
-        }
-      });
+  static findById(id, cb) {
+    getProductsFromFile((products) => {
+      const product = products.find((p) => p.id === id);
+      cb(product);
     });
   }
 };
