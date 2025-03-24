@@ -14,6 +14,12 @@ exports.getProducts = (req, res, next) => {
 exports.getProduct = async (req, res, next) => {
   const prodId = req.params.productId;
   Product.findById(prodId, (product) => {
+    if (!product) {
+      return res.status(404).render("404", {
+        pageTitle: "Product Not Found",
+        path: "/404",
+      });
+    }
     res.render("shop/product-detail", {
       prods: product,
       pageTitle: product.title,
@@ -42,7 +48,9 @@ exports.getCart = (req, res, next) => {
 exports.postCart = (req, res, next) => {
   const prodId = req.body.productId;
   console.log(prodId);
-
+  Product.findById(prodId, (product) => {
+    Cart.addProduct(prodId, product.price);
+  });
   res.redirect("/cart");
 };
 
