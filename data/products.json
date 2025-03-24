@@ -5,5 +5,12 @@
     "description": "Some Description of this test product. ",
     "price": "59",
     "id": "0.8092046001127384"
+  },
+  {
+    "title": "Test",
+    "imageUrl": "asdfghjkl",
+    "description": "poiuytre",
+    "price": "2321",
+    "id": "0.27462538825897775"
   }
 ]
